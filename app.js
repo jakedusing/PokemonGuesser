@@ -13,7 +13,7 @@ async function getRandomPokemon() {
     const data = await response.json();
 
     randomPokemon = data;
-    // onsole.log(randomPokemon);
+    // console.log(randomPokemon);
     const pokemonImage = randomPokemon.sprites.front_default;
     console.log(pokemonImage);
 
@@ -36,6 +36,31 @@ function submitGuess() {
     .trim();
   const feedback = document.getElementById("feedback");
   const attemptsCount = document.getElementById("attemptsCount");
+  const correctLettersDiv = document.getElementById("correctLetters");
+  const incorrectLettersDiv = document.getElementById("incorrectLetters");
+
+  let correctLetters = [];
+  let incorrectLetters = [];
+
+  // Loop through each letter in the user's guess and compare with the pokemon's name
+  for (let i = 0; i < randomPokemon.name.length; i++) {
+    if (userGuess[i] === randomPokemon.name[i]) {
+      correctLetters.push(userGuess[i]);
+    } else {
+      incorrectLetters.push(userGuess[i] || ""); // push an empty string if the userGuess is shorter than the pokemon name
+    }
+  }
+
+  // Show correct and incorrect letters in the corresponding divs
+  correctLettersDiv.innerHTML = `Correct Letters: ${correctLetters.join(
+    ", "
+  )};`;
+  incorrectLettersDiv.innerHTML = `Incorrect Letters: ${incorrectLetters.join(
+    ", "
+  )};`;
+
+  console.log(correctLetters);
+  console.log(incorrectLetters);
 
   if (userGuess === randomPokemon.name.toLowerCase()) {
     feedback.classList.remove("hidden");
