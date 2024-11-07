@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Guesser</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #pokemonImage {
+        width: 200px;
+        height: 200px;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Guess the Pokemon!</h1>
+    <div><img id="pokemonImage" src="" alt="Random Pokemon" /></div>
+    <div>
+      <input type="text" id="userGuess" placeholder="Enter your guess" />
+      <button id="submitGuess">Submit Guess</button>
+    </div>
+    <div id="feedback" class="hidden"></div>
+    <div id="attemptsCount">
+      Attempts Left:<span id="attemptsCount">3</span>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
