@@ -4,19 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon Guesser</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-      #pokemonImage {
-        width: 200px;
-        height: 200px;
-      }
-      .hidden {
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>Guess the Pokemon!</h1>
@@ -27,10 +15,12 @@
     </div>
     <div id="feedback" class="hidden"></div>
     <div id="attemptsCount">
-      Attempts Left:<span id="attemptsCount">3</span>
+      <!--Attempts Left:<span id="attemptsCount">3</span> -->
     </div>
-    <div id="correctLetters"></div>
-    <div id="incorrectLetters"></div>
+    <!-- <div id="correctLetters"></div>-->
+    <!--<div id="incorrectLetters"></div> -->
+    <div id="letterBoxesContainer"></div>
+    <div id="userGuessContainer"></div>
 
     <script src="app.js"></script>
   </body>

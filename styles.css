@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#pokemonImage {
+  width: 200px;
+  height: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+.guess-row {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.letter-box {
+  width: 40px; /* Consistent box width */
+  height: 40px; /* Consistent box height */
+  margin: 5px;
+  display: inline-flex; /* Changed to inline-flex */
+  justify-content: center; /* Horizontally centers text */
+  align-items: center; /* Vertically centers text */
+  font-weight: bold;
+  font-size: 20px; /* Ensure font size is consistent */
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: gray;
+  color: white;
+  box-sizing: border-box; /* Prevent padding from affecting the box size */
+}
+
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.wrong-position {
+  background-color: yellow;
+  color: black;
+}
+
+.incorrect {
+  background-color: grey;
+  color: white;
+}
