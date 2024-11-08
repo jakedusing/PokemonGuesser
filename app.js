@@ -24,7 +24,7 @@ async function getRandomPokemon() {
       console.error("Image not found for this pokemon");
     }
 
-    // Set up the initial letter boxes (one box per letter in the pokemon name)
+    // Initial grey boxes showing the length of pokemon name
     const letterBoxesContainer = document.getElementById(
       "letterBoxesContainer"
     );
@@ -65,6 +65,7 @@ function submitGuess() {
   const feedback = document.getElementById("feedback");
   // const attemptsCount = document.getElementById("attemptsCount");
   // const userGuessContainer = document.getElementById("userGuessContainer");
+  const guessRowsContainer = document.getElementById("guessRowsContainer");
 
   let letterFeedback = [];
 
@@ -95,8 +96,26 @@ function submitGuess() {
     letterFeedback.push("incorrect");
   }
 
+  // Create a new guess row with letter boxes for feedback
+  const guessRow = document.createElement("div");
+  guessRow.classList.add("guess-row");
+
+  // Create letter boxes for the guess and display the feedback
+  for (let i = 0; i < pokemonName.length; i++) {
+    const letterBox = document.createElement("div");
+
+    // log values for debugging
+    console.log(`Letter: ${userGuess[i]} Feedback: ${letterFeedback[i]}`);
+    letterBox.classList.add("letter-box", letterFeedback[i]);
+    letterBox.textContent = userGuess[i].toUpperCase();
+    guessRow.appendChild(letterBox);
+  }
+
+  // Add the guess row to the guess container (this keeps previous guesses visible)
+  guessRowsContainer.appendChild(guessRow);
+
   // Show the correct numbers of boxes (one for each letter of the pokemon name)
-  const letterBoxesContainer = document.getElementById("letterBoxesContainer");
+  /*const letterBoxesContainer = document.getElementById("letterBoxesContainer");
   const letterBoxes = letterBoxesContainer.children;
 
   for (let i = 0; i < pokemonName.length; i++) {
@@ -112,7 +131,7 @@ function submitGuess() {
       box.style.backgroundColor = "gray";
       box.textContent = guessLetter.toUpperCase();
     }
-  }
+  } */
 
   console.log(letterFeedback);
 
