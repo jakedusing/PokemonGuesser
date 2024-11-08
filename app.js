@@ -3,6 +3,7 @@ const pokeApiUrl = "https://pokeapi.co/api/v2/pokemon/";
 
 let randomPokemon;
 let attemptsLeft = 3;
+let firstGuessMade = false;
 
 // Get random Pokemon and display the image
 async function getRandomPokemon() {
@@ -23,6 +24,12 @@ async function getRandomPokemon() {
     } else {
       console.error("Image not found for this pokemon");
     }
+
+    // Clear any previous guesses
+    document.getElementById("guessRowsContainer").innerHTML = "";
+    document.getElementById("feedback").classList.add("hidden");
+    document.getElementById("userGuess").value = "";
+    firstGuessMade = false;
 
     // Initial grey boxes showing the length of pokemon name
     const letterBoxesContainer = document.getElementById(
@@ -113,6 +120,15 @@ function submitGuess() {
 
   // Add the guess row to the guess container (this keeps previous guesses visible)
   guessRowsContainer.appendChild(guessRow);
+
+  // After the first guess, hide the gray boxes and show the user's guess
+  if (!firstGuessMade) {
+    const letterBoxesContainer = document.getElementById(
+      "letterBoxesContainer"
+    );
+    letterBoxesContainer.innerHTML = "";
+    firstGuessMade = true;
+  }
 
   // Show the correct numbers of boxes (one for each letter of the pokemon name)
   /*const letterBoxesContainer = document.getElementById("letterBoxesContainer");

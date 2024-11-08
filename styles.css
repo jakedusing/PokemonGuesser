@@ -21,7 +21,7 @@ body {
 .letter-box {
   width: 40px; /* Consistent box width */
   height: 40px; /* Consistent box height */
-  margin: 5px;
+  margin-top: 10px;
   display: inline-flex; /* Changed to inline-flex */
   justify-content: center; /* Horizontally centers text */
   align-items: center; /* Vertically centers text */
