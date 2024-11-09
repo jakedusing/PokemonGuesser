@@ -17,7 +17,6 @@ async function getRandomPokemon() {
     randomPokemon = data;
     const pokemonName = randomPokemon.name;
     const pokemonImage = randomPokemon.sprites.front_default;
-    console.log(pokemonImage, pokemonName);
 
     if (pokemonImage) {
       // Display the Pokemon image
@@ -111,7 +110,7 @@ function submitGuess() {
     const letterBox = document.createElement("div");
 
     // log values for debugging
-    console.log(`Letter: ${userGuess[i]} Feedback: ${letterFeedback[i]}`);
+    //console.log(`Letter: ${userGuess[i]} Feedback: ${letterFeedback[i]}`);
     letterBox.classList.add("letter-box", letterFeedback[i]);
     letterBox.textContent = userGuess[i].toUpperCase();
     guessRow.appendChild(letterBox);
