@@ -7,20 +7,23 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Guess the Pokemon!</h1>
-    <div><img id="pokemonImage" src="" alt="Random Pokemon" /></div>
-    <div>
-      <input type="text" id="userGuess" placeholder="Enter your guess" />
-      <button id="submitGuess">Submit Guess</button>
+    <div class="header">
+      <h1>Guess the Pokemon!</h1>
     </div>
-    <div id="feedback" class="hidden"></div>
-    <div id="attemptsCount"></div>
-    <div id="letterBoxesContainer"></div>
-    <!--<div id="userGuessContainer"></div> -->
-    <div id="guessRowsContainer"></div>
-    <div id="correctGuessesCount">Correct Guesses: 0</div>
-    <button id="resetButton" class="hidden">Try Again</button>
-
+    <div class="container">
+      <div><img id="pokemonImage" src="" alt="Random Pokemon" /></div>
+      <div>
+        <input type="text" id="userGuess" placeholder="Enter your guess" />
+        <button id="submitGuess">Submit Guess</button>
+      </div>
+      <div id="feedback" class="hidden"></div>
+      <div id="attemptsCount"></div>
+      <div id="letterBoxesContainer"></div>
+      <!--<div id="userGuessContainer"></div> -->
+      <div id="guessRowsContainer"></div>
+      <div id="correctGuessesCount">Correct Guesses: 0</div>
+      <button id="resetButton" class="hidden">Try Again</button>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

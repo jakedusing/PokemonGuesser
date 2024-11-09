@@ -1,5 +1,6 @@
 body {
   font-family: Arial, sans-serif;
+  padding-top: 35px;
   text-align: center;
   background-color: #f4f4f9;
   color: #333;
@@ -8,7 +9,20 @@ body {
 h1 {
   color: #2d3a3f;
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+.header {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 #pokemonImage {
