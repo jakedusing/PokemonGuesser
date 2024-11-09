@@ -49,14 +49,44 @@ button:hover {
   background-color: #3578e5;
 }
 
-.hidden {
+button:disabled {
+  background-color: #b4b4b4;
+  cursor: not-allowed;
+}
+
+#feedback {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 500px;
+  margin: 10px auto;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#feedback.hidden {
   display: none;
 }
 
-.guess-row {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
+#feedback.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+#feedback.incorrect {
+  background-color: #ff9800;
+  color: white;
+}
+
+#feedback.game-over {
+  background-color: #f44336;
+}
+
+.hidden {
+  display: none;
 }
 
 .letter-box {
@@ -75,17 +105,34 @@ button:hover {
   box-sizing: border-box; /* Prevent padding from affecting the box size */
 }
 
+.guess-row {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+#attemptsCount {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+#correctGuessesCount {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .correct {
-  background-color: green;
+  background-color: #4caf50;
   color: white;
 }
 
 .wrong-position {
-  background-color: yellow;
+  background-color: #ffeb3b;
   color: black;
 }
 
 .incorrect {
-  background-color: grey;
+  background-color: #9e9e9e;
   color: white;
 }

@@ -4,6 +4,7 @@ const pokeApiUrl = "https://pokeapi.co/api/v2/pokemon/";
 let randomPokemon;
 let attemptsLeft = 3;
 let firstGuessMade = false;
+let correctGuesses = 0;
 
 // Get random Pokemon and display the image
 async function getRandomPokemon() {
@@ -70,8 +71,6 @@ function submitGuess() {
     .value.toLowerCase()
     .trim();
   const feedback = document.getElementById("feedback");
-  // const attemptsCount = document.getElementById("attemptsCount");
-  // const userGuessContainer = document.getElementById("userGuessContainer");
   const guessRowsContainer = document.getElementById("guessRowsContainer");
 
   let letterFeedback = [];
@@ -130,35 +129,21 @@ function submitGuess() {
     firstGuessMade = true;
   }
 
-  // Show the correct numbers of boxes (one for each letter of the pokemon name)
-  /*const letterBoxesContainer = document.getElementById("letterBoxesContainer");
-  const letterBoxes = letterBoxesContainer.children;
-
-  for (let i = 0; i < pokemonName.length; i++) {
-    const box = letterBoxes[i];
-    const guessLetter = userGuess[i] || ""; // if the guess is shorter, keep the box empty
-    if (letterFeedback[i] === "correct") {
-      box.style.backgroundColor = "green";
-      box.textContent = guessLetter.toUpperCase();
-    } else if (letterFeedback[i] === "wrong-position") {
-      box.style.backgroundColor = "yellow";
-      box.textContent = guessLetter.toUpperCase();
-    } else if (letterFeedback[i] === "incorrect") {
-      box.style.backgroundColor = "gray";
-      box.textContent = guessLetter.toUpperCase();
-    }
-  } */
-
-  console.log(letterFeedback);
-
   if (userGuess === randomPokemon.name.toLowerCase()) {
     feedback.classList.remove("hidden");
     feedback.innerHTML = `Correct!  You guessed the Pokemon, ${randomPokemon.name}!`;
     feedback.style.color = "green";
 
+    // Increment the correct guesses counter
+    correctGuesses++;
+
+    // Update the correct guesses display
+    document.getElementById(
+      "correctGuessesCount"
+    ).textContent = `Correct Guesses: ${correctGuesses}`;
+
     // Reset attempts to 3 and get a new Pokemon
     attemptsLeft = 3;
-    //attemptsCount.textContent = attemptsLeft;
 
     // Wait 1.5 seconds before getting a new Pokemon to play again
     setTimeout(() => {
@@ -168,13 +153,14 @@ function submitGuess() {
     }, 1500); // delay to show the feedback message before new image appears
   } else {
     attemptsLeft--;
-    //attemptsCount.textContent = attemptsLeft;
 
     if (attemptsLeft === 0) {
       feedback.classList.remove("hidden");
       feedback.innerHTML = `Game Over!  The correct answer was ${randomPokemon.name}.`;
       feedback.style.color = "red";
       document.getElementById("submitGuess").disabled = true;
+      document.getElementById("resetButton").classList.remove("hidden");
+      document.getElementById("resetButton").classList.add("block");
     } else {
       feedback.classList.remove("hidden");
       feedback.innerHTML = `Incorrect! Try again.  You have ${attemptsLeft} attempt(s) left.`;
@@ -185,6 +171,10 @@ function submitGuess() {
 
 // Event listener for the submit button
 document.getElementById("submitGuess").addEventListener("click", submitGuess);
+
+document.getElementById("resetButton").addEventListener("click", () => {
+  location.reload();
+});
 
 // Event listener to restrict input to letters only
 document
