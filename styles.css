@@ -43,7 +43,7 @@ input[type="text"] {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="text"] {
+input[type="text"]:focus {
   border-color: #4e9bff;
   box-shadow: 0 0 5px rgba(72, 161, 255, 0.5);
 }
@@ -103,20 +103,28 @@ button:disabled {
   display: none;
 }
 
+#letterBoxesContainer {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  justify-content: center; /* Center the letter boxes */
+  margin-top: 10px; /* Optional: spacing above letter boxes */
+}
+
 .letter-box {
   width: 40px; /* Consistent box width */
   height: 40px; /* Consistent box height */
-  margin-top: 10px;
-  display: inline-flex; /* Changed to inline-flex */
+  margin-right: 2px; /* Space between boxes */
+  display: inline-flex; /* Align items */
   justify-content: center; /* Horizontally centers text */
   align-items: center; /* Vertically centers text */
-  font-weight: bold;
+  font-weight: bold; /* Bold text */
   font-size: 20px; /* Ensure font size is consistent */
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: gray;
-  color: white;
-  box-sizing: border-box; /* Prevent padding from affecting the box size */
+  border: 2px solid #ccc; /* Border for boxes */
+  border-radius: 5px; /* Rounded corners */
+  background-color: gray; /* Background color */
+  color: white; /* Text color */
+  box-sizing: border-box; /* Include padding/border in dimensions */
 }
 
 .guess-row {
@@ -125,11 +133,7 @@ button:disabled {
   margin: 10px;
 }
 
-#attemptsCount {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
+#attemptsCount,
 #correctGuessesCount {
   font-size: 1.2rem;
   margin-top: 10px;
